@@ -1,0 +1,24 @@
+{
+  "name": "js-image-viewer",
+  "version": "1.0.0",
+  "description": "Simple webapp that allows image viewing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "image",
+    "view"
+  ],
+  "author": "bdowns",
+  "license": "MIT",
+  "dependencies": {
+    "d": "^1.0.1",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.4",
+    "pug": "^3.0.0",
+    "s": "^1.0.0",
+    "serve-favicon": "^2.5.0"
+  }
+}
