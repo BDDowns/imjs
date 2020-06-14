@@ -1,21 +1,47 @@
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
-const fs = require('fs');
 const serveIndex = require('serve-index');
+const DirectoryInfo = require('./utils/DirectoryInfo');
 
 const app = express();
 
 const port = 3001;
 
-app.use(morgan('tiny'));
+// grab images to be shared
 
-app.use('/api/image', express.static(path.join(__dirname, '/images')));
+
+app.use(morgan('tiny'));
 
 app.use('/images', express.static(__dirname + '/images'), serveIndex(__dirname + '/images', { icons: true }));
 
-const files = fs.readdirSync(path.join(__dirname, '/images'));
+app.get('/directoryInfo', (req, res) => {
+  
+  let page = req.query.page;
+  let limit = req.query.limit;
 
-app.get('/api/image-names', (req, res) => res.send(JSON.stringify(files)));
+  const imagesRoute = '/images';
+  const imagesBasePath = path.join(__dirname, imagesRoute);
+  const dinfo = new DirectoryInfo(imagesBasePath, imagesRoute);
 
-app.listen(port, () => console.log(`Server listening on port: ${port}`));
+  console.log(JSON.stringify(dinfo, null, 2));
+  
+  res.send(JSON.stringify(dinfo))
+});
+
+app.get('/directoryInfo/route', (req, res) => {
+  console.log('received request');
+
+  let route = req.query.route;
+
+  console.log(route);
+
+  const imagesBasePath = path.join(__dirname, route);
+  const dinfo = new DirectoryInfo(imagesBasePath, route);
+  
+  console.log(JSON.stringify(dinfo, null, 2));
+
+  res.send(JSON.stringify(dinfo))
+})
+
+app.listen(port, () => console.log(`Server running on port: ${port}`));
