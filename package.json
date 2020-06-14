@@ -2,9 +2,10 @@
   "name": "js-image-viewer",
   "version": "1.0.0",
   "description": "Simple webapp that allows image viewing",
-  "main": "index.js",
+  "main": "imageServer.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon start"
   },
   "keywords": [
     "image",
@@ -14,11 +15,14 @@
   "license": "MIT",
   "dependencies": {
     "d": "^1.0.1",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "g": "^2.0.1",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.4",
     "pug": "^3.0.0",
     "s": "^1.0.0",
-    "serve-favicon": "^2.5.0"
+    "serve-favicon": "^2.5.0",
+    "serve-index": "^1.9.1"
   }
 }
