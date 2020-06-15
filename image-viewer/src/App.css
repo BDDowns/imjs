@@ -82,3 +82,25 @@ body {
 .Page-Button-Disabled {
   background-image: linear-gradient(to right, gray, gray);
 }
+
+.Image-Display {
+  position: absolute;
+  top: 0;
+  background-color: #000000;
+  height: 100vh;
+  width: 99vw;
+  overflow-x: hidden;
+}
+
+.Image-Display img {
+  position: absolute;
+  top: 10%;
+  left: 0%;
+  width: 100vw;
+}
+
+.Image-Display h1 {
+  position: absolute;
+  top: 1%;
+  right: 2%;
+}

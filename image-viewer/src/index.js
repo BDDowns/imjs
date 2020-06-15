@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter as Router } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <App />
+    <Router basename='/'>
+      <Redirect from="/" to="/images" />
+      <Route path="/images">
+        <App />
+      </Route>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

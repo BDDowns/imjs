@@ -34,6 +34,10 @@ app.get('/directoryInfo/route', (req, res) => {
 
   let route = req.query.route;
 
+  if (!route.startsWith('/images')) {
+    res.status(404).send('The path requested was not found.');
+  }
+
   console.log(route);
 
   const imagesBasePath = path.join(__dirname, route);

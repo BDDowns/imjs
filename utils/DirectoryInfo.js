@@ -28,10 +28,10 @@ const imageExtensions = [
 ];
 
 /**
- * Simple prototype object that recursively extracts useful information about the 
+ * Simple prototype object that extracts useful information about the 
  * parameterized path.
  * 
- * Includes contained files, directories, and various access / filter prototype methods
+ * Includes contained files, directories, and various methods
  * 
  * @param {*} path path to directory to be explored
  */
@@ -42,15 +42,5 @@ function DirectoryInfo(path, route) {
   this.directories = getDirectories(path);
   this.name = `/${basename(route)}`;
 }
-
-// DirectoryInfo.prototype.getDirectoryTree = function() {
-//   const directories = fs.readdirSync(this.path)
-//                         .filter(item => isDirectory(path.join(this.path, item)));
-//   if (directories && directories.length > 0) {
-//     directories.forEach(directory => {
-//       this.directories.push(new PathExplorer(path.join(this.path, directory)));
-//     })
-//   }
-// };
 
 module.exports = DirectoryInfo;

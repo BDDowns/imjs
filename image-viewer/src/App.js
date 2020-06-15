@@ -7,7 +7,8 @@ import DirectoryIcon from './components/directory-icon';
 import './App.css';
 
 function App() {
-  const [directoryInfo, setDirectoryInfo] = useState([]);
+  const [directoryInfo, setDirectoryInfo] = useState({});
+  const [imageDisplayed, setImageDisplayed] = useState();
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -51,9 +52,16 @@ function App() {
               name={name}
               hide={false}
               size={{ width: 250 }}
+              onClick={() => setImageDisplayed(name)}
             />
           ))}
         </div>
+        {imageDisplayed &&
+          <div className="Image-Display" >
+            <h1 onClick={() => setImageDisplayed(undefined)}>x</h1>
+            <img src={`${directoryInfo.route}/${imageDisplayed}`} alt={imageDisplayed} width="100%" height="auto" onClick={() => console.log(directoryInfo)}/>
+          </div>
+        }
         <div className="Inline-Container">
           <button className="Page-Button Page-Button-Disabled">prev</button>
           <p>1 of 1</p>
